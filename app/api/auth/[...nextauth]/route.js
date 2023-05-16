@@ -1,0 +1,19 @@
+const { default: NextAuth } = require("next-auth/next");
+import GoogleProvider from "next-auth/providers/google";
+import { signIn } from "next-auth/react";
+const handler = NextAuth({
+    providers:[
+        GoogleProvider({
+            clientId:process.env.GOOGLE_ID,
+            clientSecret:process.env.GOOGLE_CLIENT_SECRET
+        }),
+    ],
+    async session ({session}){
+
+    },
+    async  signIn( {signIn}){
+
+    }
+
+})
+export {handler as GET, handler as POST};
